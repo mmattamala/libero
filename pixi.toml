@@ -91,3 +91,13 @@ thop = ">=0.1.1.0, <0.2"
 bddl = ">=3.6.0, <4"
 robosuite = ">=1.4.0,<1.4.1"
 robosuite-models = ">=1.0.0, <2"
+
+
+# =============================================================================
+# OSX-related settings
+# =============================================================================
+[target.osx.dependencies]
+cmake = ">=3.24.2"
+
+[target.osx.pypi-dependencies]
+egl-probe = { git = "https://github.com/mmattamala/egl_probe/" }
