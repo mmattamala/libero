@@ -23,8 +23,10 @@ dependencies = []
 [project.scripts]
 "libero.config_copy" = "scripts.config_copy:main"
 "libero.create_template" = "scripts.create_template:main"
+"libero.download_dataset" = "scripts.download_dataset:main"
 "lifelong.eval" = "libero.lifelong.evaluate:main"
 "lifelong.main" = "libero.lifelong.main:main"
+
 
 # [tool.hatch.version]
 # path = "libero/__init__.py"

@@ -8,7 +8,7 @@ import os
 
 def main():
     parser = argparse.ArgumentParser(description="LIBERO Download script")
-    LIBERO_DATASETS = ["libero_goal", "libero_spatial", "libero_object", "libero_90"]
+    LIBERO_DATASETS = ["libero_goal", "libero_spatial", "libero_object", "libero_10", "libero_90"]
     parser.add_argument("dataset", type=str, help=f"Options available: {LIBERO_DATASETS}")
     args = parser.parse_args()
 

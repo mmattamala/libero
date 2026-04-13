@@ -1258,7 +1258,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/e0/1d/b5d63f1a6b824282b57f7b581810d20b7a28ca951f2d5b59f1eb0782c12b/tensorboardx-2.6.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/33/d1/8bb87d21e9aeb323cc03034f5eaf2c8f69841e40e4853c2627edf8111ed3/termcolor-3.3.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/bb/0f/72beeab4ff5221dc47127c80f8834b4bcd0cb36f6ba91c0b1d04a1233403/thop-0.1.1.post2209072238-py3-none-any.whl
-      - pypi: https://download.pytorch.org/whl/cu130/torch-2.10.0%2Bcu130-cp312-cp312-manylinux_2_28_x86_64.whl
+      - pypi: https://download-r2.pytorch.org/whl/cu130/torch-2.10.0%2Bcu130-cp312-cp312-manylinux_2_28_x86_64.whl
       - pypi: https://download.pytorch.org/whl/torchmetrics-1.0.3-py3-none-any.whl
       - pypi: https://download-r2.pytorch.org/whl/cu130/torchvision-0.25.0%2Bcu130-cp312-cp312-manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/ab/a8/cdf8b3e4c98132f965f88c2313a4b493266832ad47fb52f23d14d4f86bb5/triton-3.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl
@@ -4655,7 +4655,7 @@ packages:
   - python >=3
   - python *
   input:
-    hash: a54ed8f7a5b28d56b4767111bbc053f4cbce4100ba605eceeca15fada0bb904f
+    hash: 0a1e22fd1282b48535d8c584f8d537396daeaca564007c02045fa6828bb7105a
     globs:
     - pyproject.toml
 - conda: https://prefix.dev/conda-forge/linux-64/libev-4.33-hd590300_2.conda
@@ -9538,7 +9538,7 @@ packages:
   - pkg:pypi/tomli?source=compressed-mapping
   size: 21561
   timestamp: 1774492402955
-- pypi: https://download.pytorch.org/whl/cu130/torch-2.10.0%2Bcu130-cp312-cp312-manylinux_2_28_x86_64.whl
+- pypi: https://download-r2.pytorch.org/whl/cu130/torch-2.10.0%2Bcu130-cp312-cp312-manylinux_2_28_x86_64.whl
   name: torch
   version: 2.10.0+cu130
   sha256: 858f0cbcc78d726fea9499eb3464faa98392fa093845a3262209bd226b7844d6
