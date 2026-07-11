@@ -45,8 +45,18 @@ ______________________________________________________________________
 - [License](#License)
 
 
-# Installtion
+# Installation
+This package has been updated to use [Pixi](https://pixi.prefix.dev/latest/) for installation.
 Please run the following commands in the given order to install the dependency for **LIBERO**.
+
+```
+pixi install
+```
+
+<details>
+
+<summary>Original instructions</summary>
+
 ```
 conda create -n libero python=3.8.13
 conda activate libero
@@ -60,6 +70,8 @@ Then install the `libero` package:
 ```
 pip install -e .
 ```
+</details>
+
 
 # Datasets
 We provide high-quality human teleoperation demonstrations for the four task suites in **LIBERO**. To download the demonstration dataset, run:

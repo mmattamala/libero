@@ -7,8 +7,8 @@ name = "libero"
 version = "1.0.0"
 description = "LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning"
 readme = "README.md"
-license-files = ["LICENSE"]
-requires-python = ">=3"
+license = "LICENSE"
+requires-python = ">=3.12,<3.13"
 authors = [
     { name = "Bo Liu", email = "bliu@cs.utexas.edu" },
     { name = "Yifeng Zhu", email = "yifengz@cs.utexas.edu" },
@@ -18,7 +18,20 @@ authors = [
     { name = "Yuke Zhu" },
     { name = "Peter Stone" },
 ]
-dependencies = []
+dependencies = [
+    "easydict>=1.13,<2",
+    "cloudpickle>=3.1.2,<4",
+    "mujoco>=3.3.0,<3.10.0",
+    "robosuite@git+https://github.com/ARISE-Initiative/robosuite",
+    "robosuite-models>=1.0.0,<2",
+    "robomimic>=0.3.0,<0.4",
+    "thop>=0.1.1.0,<0.2",
+    "bddl>=3.6.0,<4",
+    "gymnasium>=1.3.0,<2",
+    "torch",
+    "torchvision",
+    "setuptools"
+]
 
 [project.scripts]
 "libero.config_copy" = "scripts.config_copy:main"
@@ -27,11 +40,41 @@ dependencies = []
 "lifelong.eval" = "libero.lifelong.evaluate:main"
 "lifelong.main" = "libero.lifelong.main:main"
 
-
-# [tool.hatch.version]
-# path = "libero/__init__.py"
-
 [tool.hatch.build.targets.sdist]
 include = [
     "/libero",
 ]
+
+[tool.pixi.workspace]
+channels = ["https://prefix.dev/conda-forge"]
+name = "libero"
+platforms = [{name="linux-gpu", platform = "linux-64", cuda = "13"},
+             {name="linux-cpu", platform = "linux-64"},
+             "osx-arm64"]
+version = "0.1.0"
+preview = ["pixi-build"]
+
+
+[tool.pixi.target.osx.dependencies]
+cmake = ">=3.24.2"
+
+[tool.pixi.target.osx.pypi-dependencies]
+egl-probe = { git = "https://github.com/mmattamala/egl_probe/" }
+
+[tool.pixi.environments]
+gpu = { features = ["gpu"] }
+default = { features = ["cpu"] }
+
+[tool.pixi.feature.cpu]
+platforms = ["linux-cpu", "osx-arm64"]
+
+[tool.pixi.feature.gpu]
+platforms = ["linux-gpu"]
+
+[tool.pixi.feature.gpu.dependencies]
+cuda-version = ">=13"
+
+[tool.pixi.feature.gpu.pypi-dependencies]
+torch = { version = "*", index = "https://download.pytorch.org/whl/cu130" }
+torchvision = { version = "*", index = "https://download.pytorch.org/whl/cu130" }
+torchmetrics = { version = "*", index = "https://download.pytorch.org/whl/cu130" }
