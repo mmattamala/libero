@@ -18,6 +18,7 @@ authors = [
     { name = "Yuke Zhu" },
     { name = "Peter Stone" },
 ]
+
 dependencies = [
     "easydict>=1.13,<2",
     "cloudpickle>=3.1.2,<4",
@@ -29,7 +30,8 @@ dependencies = [
     "bddl>=3.6.0,<4",
     "gymnasium>=1.3.0,<2",
     "torch",
-    "torchvision"
+    "torchvision",
+    "egl-probe @ git+https://github.com/mmattamala/egl_probe/",
 ]
 
 [project.scripts]
@@ -64,9 +66,6 @@ libero = { path = ".", editable = true }
 
 [tool.pixi.target.osx.dependencies]
 cmake = ">=3.24.2"
-
-[tool.pixi.target.osx.pypi-dependencies]
-egl-probe = { git = "https://github.com/mmattamala/egl_probe/" }
 
 [tool.pixi.environments]
 gpu = { features = ["gpu"] }
