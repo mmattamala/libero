@@ -2,7 +2,9 @@
 authors = ["Matias Mattamala <matias.mattamala@ed.ac.uk>"]
 channels = ["https://prefix.dev/conda-forge"]
 name = "libero"
-platforms = ["osx-arm64", "linux-64"]
+platforms = [{name="linux-gpu", platform = "linux-64", cuda = "13"},
+             {name="linux-cpu", platform = "linux-64"},
+             "osx-arm64"]
 version = "0.1.0"
 preview = ["pixi-build"]
 
@@ -33,12 +35,12 @@ default = { features = ["cpu"] }
 # CPU environment dependencies
 # =============================================================================
 [feature.cpu]
-platforms = ["linux-64", "osx-arm64"]
+platforms = ["linux-cpu", "osx-arm64"]
 
 [feature.cpu.dependencies]
-pytorch-cpu = "*"
-torchvision = "*"
-torchmetrics = "*"
+# pytorch-cpu = "*"
+# torchvision = "*"
+# torchmetrics = "*"
 
 [feature.cpu.pypi-dependencies]
 # torch = { version = "*", index = "https://download.pytorch.org/whl/cpu" }
@@ -50,8 +52,7 @@ torchmetrics = "*"
 # GPU environment dependencies
 # =============================================================================
 [feature.gpu]
-system-requirements = { cuda = "13.0" }
-platforms = ["linux-64"]
+platforms = ["linux-gpu"]
 
 [feature.gpu.dependencies]
 cuda-version = ">=13"
@@ -70,28 +71,33 @@ torchmetrics = { version = "*", index = "https://download.pytorch.org/whl/cu130"
 # =============================================================================
 [dependencies]
 python = "3.12.*"
-libero = { path = "." }
-hydra-core = ">=1.3.2,<2"
-numpy = ">=2.4.3,<3"
-wandb = ">=0.25.1,<0.26"
 easydict = ">=1.13,<2"
-transformers = ">=5.4.0,<6"
-opencv = ">=4.13.0,<5"
-einops = ">=0.8.2,<0.9"
-future = ">=1.0.0,<2"
-matplotlib = ">=3.10.8,<4"
 cloudpickle = ">=3.1.2,<4"
-gymnasium = ">=1.2.3,<2"
-ipykernel = ">=7.2.0,<8"
-jupyter = ">=1.1.1,<2"
+# libero = { path = "." }
+# hydra-core = ">=1.3.2,<2"
+# numpy = ">=2.4.3,<3"
+# wandb = ">=0.25.1,<0.26"
+# easydict = ">=1.13,<2"
+# transformers = ">=5.4.0,<6"
+# opencv = ">=4.13.0,<5"
+# einops = ">=0.8.2,<0.9"
+# future = ">=1.0.0,<2"
+# matplotlib = ">=3.10.8,<4"
+# cloudpickle = ">=3.1.2,<4"
+# gymnasium = ">=1.2.3,<2"
+# ipykernel = ">=7.2.0,<8"
+# jupyter = ">=1.1.1,<2"
 
 [pypi-dependencies]
+# robosuite = { git = "https://github.com/mmattamala/robosuite" }
+# robosuite-models = ">=1.0.0, <2"
+mujoco = "==3.3.0"
+robosuite = { git = "https://github.com/mmattamala/robosuite" }
+robosuite-models = ">=1.0.0, <2"
 robomimic = ">=0.3.0, <0.4"
 thop = ">=0.1.1.0, <0.2"
 bddl = ">=3.6.0, <4"
-robosuite = ">=1.4.0,<1.4.1"
-robosuite-models = ">=1.0.0, <2"
-
+gymnasium = ">=1.3.0, <2"
 
 # =============================================================================
 # OSX-related settings
