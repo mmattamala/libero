@@ -53,6 +53,12 @@ Please run the following commands in the given order to install the dependency f
 pixi install
 ```
 
+Then you can activate the environment running:
+
+```
+pixi shell
+```
+
 <details>
 
 <summary>Original instructions</summary>
